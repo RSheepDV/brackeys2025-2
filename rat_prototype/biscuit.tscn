@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b68h4s5mqb0b2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u2mpg"]
+height = 0.2
+
+[node name="Biscuit" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CylinderShape3D_u2mpg")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="RigidBody3D"]
+height = 0.2
