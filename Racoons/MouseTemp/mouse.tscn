@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlafu44cn33vi"]
+
+[ext_resource type="Script" uid="uid://cvfnyfodduguv" path="res://Racoons/MouseTemp/mouse.gd" id="1_ibvpo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibvpo"]
+albedo_color = Color(0.26918, 0.26918, 0.26918, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_iy0gt"]
+material = SubResource("StandardMaterial3D_ibvpo")
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ibvpo"]
+
+[node name="Mouse" type="CharacterBody3D"]
+script = ExtResource("1_ibvpo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_iy0gt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ibvpo")
