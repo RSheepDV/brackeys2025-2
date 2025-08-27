@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4bs778tt3lds"
-path="res://.godot/imported/racoon.blend-b4e890696ae08a36dc2abfb2220d3c21.scn"
+valid=false
 
 [deps]
 
 source_file="res://Racoons/racoon.blend"
-dest_files=["res://.godot/imported/racoon.blend-b4e890696ae08a36dc2abfb2220d3c21.scn"]
 
 [params]
 

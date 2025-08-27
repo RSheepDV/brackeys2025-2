@@ -8,7 +8,7 @@
 
 [node name="RatTest" type="Node3D"]
 
-[node name="rat_root" parent="." groups=["rat"] instance=ExtResource("1_1gkym")]
+[node name="rat_root" parent="." instance=ExtResource("1_1gkym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967716, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

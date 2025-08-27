@@ -1,9 +1,15 @@
 extends CharacterBody3D
 
+var SPEED: float = 2.0
+var JUMP_VELOCITY: float = 2.0
 
-const SPEED = 2.0
-const JUMP_VELOCITY = 2.0
+func _ready():
+	print("I'm a rat")
 
+func eat_biscuit():
+	print("yum biscuit")
+	SPEED *= 0.5
+	scale *= Vector3(2, 2, 2)  # shrink by 20%
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

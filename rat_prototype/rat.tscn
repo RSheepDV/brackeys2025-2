@@ -2,17 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bwuctgkeaat86" path="res://rat_prototype/(rat)character_body_3d.gd" id="1_ky0mb"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_u251b"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_r7dv2"]
 
-[node name="rat_root" type="Node3D"]
-
-[node name="(rat)CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="(rat)CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_ky0mb")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="(rat)CharacterBody3D"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="(rat)CharacterBody3D"]
-shape = SubResource("SphereShape3D_u251b")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_r7dv2")
 
-[node name="Camera3D" type="Camera3D" parent="(rat)CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
