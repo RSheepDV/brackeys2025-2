@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bndtknr5bs2eq"]
+[gd_scene load_steps=4 format=3 uid="uid://bndtknr5bs2eq"]
 
-[ext_resource type="Script" uid="uid://bwuctgkeaat86" path="res://rat_prototype/(rat)character_body_3d.gd" id="1_ky0mb"]
+[ext_resource type="Script" uid="uid://bnbj0t8f5venj" path="res://rat_prototype/rigid_body_3d.gd" id="1_r7dv2"]
+[ext_resource type="PackedScene" uid="uid://bgeu12x37oxh0" path="res://rat.blend" id="2_m435s"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_r7dv2"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_m435s"]
 
-[node name="(rat)CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_ky0mb")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_r7dv2")
+[node name="rat" type="Node3D" groups=["rat"]]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+current = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["rat"]]
+script = ExtResource("1_r7dv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" groups=["rat"]]
+shape = SubResource("SphereShape3D_m435s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" groups=["rat"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="rat" parent="RigidBody3D/MeshInstance3D" instance=ExtResource("2_m435s")]
