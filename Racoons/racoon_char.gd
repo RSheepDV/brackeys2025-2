@@ -120,7 +120,7 @@ func update_target_location(target_location):
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "mouse": #change to group
+	if body.is_in_group("Player"): #change to group
 		
 		in_area=true
 		player=body
@@ -138,7 +138,7 @@ func is_in_view(player):
 		
 		
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.name == "mouse":
+	if body.is_in_group("Player"):
 		
 		in_area=false
 		in_view=false
