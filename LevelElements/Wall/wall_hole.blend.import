@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ulvaid0im25a"
-path="res://.godot/imported/wall_corner.blend-16a978440f5bb15188935705e754026a.scn"
+uid="uid://bbsfdobjgjpke"
+path="res://.godot/imported/wall_hole.blend-770420c87831ac22f69e501c6603398a.scn"
 
 [deps]
 
-source_file="res://LevelElements/Wall/wall_corner.blend"
-dest_files=["res://.godot/imported/wall_corner.blend-16a978440f5bb15188935705e754026a.scn"]
+source_file="res://LevelElements/Wall/wall_hole.blend"
+dest_files=["res://.godot/imported/wall_hole.blend-770420c87831ac22f69e501c6603398a.scn"]
 
 [params]
 
@@ -34,11 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Side.001": {
+"Side": {
 "use_external/enabled": true,
 "use_external/path": "uid://bb5kvlgwkxcja"
 },
-"Top.001": {
+"Top": {
 "use_external/enabled": true,
 "use_external/path": "uid://d1cncjm4xpna8"
 }

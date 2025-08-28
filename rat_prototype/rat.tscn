@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bndtknr5bs2eq"]
+[gd_scene load_steps=6 format=3 uid="uid://bndtknr5bs2eq"]
 
 [ext_resource type="Script" uid="uid://bnbj0t8f5venj" path="res://rat_prototype/rigid_body_3d.gd" id="1_r7dv2"]
-[ext_resource type="PackedScene" uid="uid://bgeu12x37oxh0" path="res://rat.blend" id="2_m435s"]
+[ext_resource type="PackedScene" uid="uid://c6ghkkd6jt8a6" path="res://rat_prototype/Model/rat.blend" id="2_m435s"]
+[ext_resource type="Material" uid="uid://4821mqrrb41q" path="res://rat_prototype/Model/skin.tres" id="3_4ge2j"]
+[ext_resource type="Material" uid="uid://bhdpin5yf0sr4" path="res://rat_prototype/Model/pads.tres" id="4_j17i5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m435s"]
+radius = 0.3
 
 [node name="rat" type="Node3D" groups=["rat"]]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
-current = true
-
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["rat"]]
+transform = Transform3D(1, 0, 0, 0, 0.49177, 0.870725, 0, -0.870725, 0.49177, 0, 0.356446, 0)
 script = ExtResource("1_r7dv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" groups=["rat"]]
 shape = SubResource("SphereShape3D_m435s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" groups=["rat"]]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="model" parent="RigidBody3D" instance=ExtResource("2_m435s")]
+transform = Transform3D(0.6, 0, 0, 0, 0.332488, -0.499451, 0, 0.499451, 0.332488, 0, -0.0330908, -0.0585903)
 
-[node name="rat" parent="RigidBody3D/MeshInstance3D" instance=ExtResource("2_m435s")]
+[node name="Sphere_002" parent="RigidBody3D/model" index="1"]
+surface_material_override/0 = ExtResource("3_4ge2j")
+surface_material_override/1 = ExtResource("4_j17i5")
+
+[editable path="RigidBody3D/model"]

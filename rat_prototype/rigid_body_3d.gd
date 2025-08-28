@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @export var linear_damp_override := 2.0 # higher = stops faster
+@onready var model = $model
 
 func _ready():
 	print("I'm a rat")
@@ -9,8 +10,7 @@ func _ready():
 func eat_biscuit():
 	print("yum biscuit")
 	speed *= 0.5
-	var child_mesh = get_node("MeshInstance3D")
-	child_mesh.scale *= Vector3(1.5, 1.5, 1.5)
+	model.scale *= Vector3(1.5, 1.5, 1.5)
 
 @export var speed := 3.0 # Adjust this value to control movement speed
 
