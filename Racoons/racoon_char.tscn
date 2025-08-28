@@ -1,12 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://838jty40d2ew"]
+[gd_scene load_steps=6 format=3 uid="uid://838jty40d2ew"]
 
 [ext_resource type="Script" uid="uid://7nvud3bejmjt" path="res://Racoons/racoon_char.gd" id="1_liiyd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4asjf"]
-albedo_color = Color(0.905882, 0.239216, 0.290196, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lmnja"]
-material = SubResource("StandardMaterial3D_4asjf")
+[ext_resource type="PackedScene" uid="uid://b4bs778tt3lds" path="res://Racoons/racoon.blend" id="2_4asjf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_liiyd"]
 
@@ -20,9 +15,8 @@ height = 0.4
 [node name="Racoon_char" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_liiyd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_lmnja")
+[node name="racoon" parent="." instance=ExtResource("2_4asjf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -38,6 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04718, 0)
 shape = SubResource("CylinderShape3D_liiyd")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06841, 0)
 
 [node name="Eye" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49458, 0.410448)
@@ -53,5 +48,5 @@ one_shot = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
-[connection signal="timeout" from="TurnTimer" to="." method="_on_search_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
 [connection signal="timeout" from="SearchTimer" to="." method="_on_search_timer_timeout"]

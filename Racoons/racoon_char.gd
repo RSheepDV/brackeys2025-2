@@ -42,29 +42,41 @@ func _ready() -> void:
 	original_y_rotation=rotation.y
 
 func _physics_process(delta: float) -> void:
-	
+	if in_area and player:
+		in_view=is_in_view(player)
+	if in_view and player:
+		raycast.target_position = to_local(player.global_position)
+		raycast.force_raycast_update()
+		if raycast.is_colliding() and raycast.get_collider() != player:
+			print("collided")
+			in_view=false
+		else:
+			current_state=Racoon_State.Chase
 	match current_state:
 		Racoon_State.Chase:
 			#first check if any walls exixt that may stop the chase
 			raycast.target_position = to_local(player.global_position)
 			raycast.force_raycast_update()
 			if raycast.is_colliding() and raycast.get_collider() != player:
+				print("collided")
 				in_view=false
+			else:
+				last_known_position=player.global_position
 			
 			if in_area and in_view:
 				# if within fov and collision area: chase
 				update_target_location(player.global_position)
-				last_known_position=player.global_position
+				
 			else:
 				# otherwise move to search
 				current_state=Racoon_State.Search
 		Racoon_State.Search:
 			search_timer.start(5) # timer incase search gets stuck
-			print("Searching")
 			update_target_location(last_known_position)
 			if nav_agent.is_navigation_finished(): 
-				if turn_timer.is_stopped(): # look left and right for 1 second
-					print("Started Timer")
+				
+				if turn_timer.is_stopped():
+					print("Timer start") # look left and right for 1 second
 					turn_timer.start(1)
 			
 			
@@ -72,7 +84,7 @@ func _physics_process(delta: float) -> void:
 		Racoon_State.Patrol:
 			# iterates through patrol points and updates nav target accordingly
 			if patrol_points.size()>0:
-				print(patrol_points.size())
+				
 				update_target_location(patrol_points[current_patrol_point].global_position)
 				if nav_agent.is_navigation_finished():
 					current_patrol_point+=1
@@ -98,11 +110,8 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-func _process(delta: float) -> void:
-	if in_area and player:
-		in_view=is_in_view(player)
-	if in_view and player:
-		current_state=Racoon_State.Chase
+
+	
 	
 
 
@@ -112,7 +121,7 @@ func update_target_location(target_location):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "mouse": #change to group
-		print("entered")
+		
 		in_area=true
 		player=body
 
@@ -130,12 +139,13 @@ func is_in_view(player):
 		
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.name == "mouse":
-		print("exited")
+		
 		in_area=false
 		in_view=false
 		
 	
 func _on_turn_timer_timeout() -> void:
+	print("end of timer")
 	match current_dir:
 		SearchDirection.NA:
 			rotation.y += deg_to_rad(90)

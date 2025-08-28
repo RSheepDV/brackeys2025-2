@@ -73,7 +73,7 @@ transform = Transform3D(-4.37114e-08, 0, 5, 0, 2, 0, -1, 0, -2.18557e-07, 2.8421
 use_collision = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 1, 12.5, 6.13398)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 1, 9.73611, 11.532)
 
 [node name="Racoon_char" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("2_35llk")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, 1, 9)
