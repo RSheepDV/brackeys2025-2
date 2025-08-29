@@ -34,7 +34,7 @@ var starting_position: Vector3
 var last_known_position: Vector3 
 var original_y_rotation: float
 var in_view =false #player is inside fov
-var player: CharacterBody3D=null
+var player: RigidBody3D=null
 var in_area = false # player is inside area 2d collider
 var current_patrol_point=0
 

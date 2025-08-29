@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhdpin5yf0sr4"]
 
-[ext_resource type="Shader" path="res://rat_prototype/Model/squish_shader.gdshader" id="1_7lrrj"]
+[ext_resource type="Shader" uid="uid://bmisjb8aqtcp0" path="res://Rat/Model/squish_shader.gdshader" id="1_7lrrj"]
 
 [resource]
 render_priority = 0

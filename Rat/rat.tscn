@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bndtknr5bs2eq"]
+
+[ext_resource type="Script" uid="uid://bnbj0t8f5venj" path="res://Rat/rigid_body_3d.gd" id="1_r7dv2"]
+[ext_resource type="PackedScene" uid="uid://c6ghkkd6jt8a6" path="res://Rat/Model/rat.blend" id="2_m435s"]
+[ext_resource type="Material" uid="uid://4821mqrrb41q" path="res://Rat/Model/skin.tres" id="3_4ge2j"]
+[ext_resource type="Material" uid="uid://bhdpin5yf0sr4" path="res://Rat/Model/pads.tres" id="4_j17i5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m435s"]
+radius = 0.3
+
+[node name="Rat" type="RigidBody3D" groups=["Player"]]
+script = ExtResource("1_r7dv2")
+speed = 7.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_m435s")
+
+[node name="model" parent="." instance=ExtResource("2_m435s")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Sphere_002" parent="model" index="1"]
+surface_material_override/0 = ExtResource("3_4ge2j")
+surface_material_override/1 = ExtResource("4_j17i5")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../Node3D")
+update_rotation = false
+update_scale = false
+
+[node name="Node3D" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.702886, 0.711303, 0, -0.711303, 0.702886, 0, 3.57361, 3.08786)
+
+[editable path="model"]

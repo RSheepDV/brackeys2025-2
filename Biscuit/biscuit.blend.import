@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6ghkkd6jt8a6"
-path="res://.godot/imported/rat.blend-24bc2b081cbd377987987bcfee062e2a.scn"
+uid="uid://b56vvd7hxj6no"
+path="res://.godot/imported/biscuit.blend-c997fed8787e082a979506b5ea2550c7.scn"
 
 [deps]
 
-source_file="res://rat_prototype/Model/rat.blend"
-dest_files=["res://.godot/imported/rat.blend-24bc2b081cbd377987987bcfee062e2a.scn"]
+source_file="res://Biscuit/biscuit.blend"
+dest_files=["res://.godot/imported/biscuit.blend-c997fed8787e082a979506b5ea2550c7.scn"]
 
 [params]
 
@@ -32,14 +32,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Fur": {
-"use_external/enabled": false,
-"use_external/path": "uid://4821mqrrb41q"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
