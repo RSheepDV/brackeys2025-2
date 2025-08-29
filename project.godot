@@ -22,6 +22,7 @@ project/assembly_name="Rat Stranded"
 [global_group]
 
 Enemies=""
+Player=""
 
 [input]
 

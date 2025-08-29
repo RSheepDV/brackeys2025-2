@@ -17,9 +17,12 @@ enum SearchDirection{
 @onready var raycast: RayCast3D = $RayCast3D #Raycast detects objects between raccoon and mouse
 @onready var turn_timer: Timer = $TurnTimer #timer for raccoon to turn when searching
 @onready var search_timer: Timer = $SearchTimer #timer to search (in case search is impossible so it gives up)
+@onready var detection_light: SpotLight3D = $SpotLight3D
+@onready var detection_collider: CollisionShape3D = $Area3D/CollisionShape3D
 
 
-
+@export var SEARCH_TIME=5.0
+@export var TURN_TIME=1.0
 @export var SPEED=3.0
 @export var FOV=160
 @export var ROTATION_SPEED=2
@@ -40,6 +43,9 @@ func _ready() -> void:
 	#get original positions so raccoon can return to them
 	starting_position=global_position
 	original_y_rotation=rotation.y
+	detection_light.spot_angle=(FOV/2)+10
+	var cylinder_collider: CylinderShape3D =detection_collider.shape
+	detection_light.spot_range=cylinder_collider.radius+1.5
 
 func _physics_process(delta: float) -> void:
 	if in_area and player:
@@ -55,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	match current_state:
 		Racoon_State.Chase:
 			#first check if any walls exixt that may stop the chase
+			detection_light.light_color =Color(1,0,0,1)
 			raycast.target_position = to_local(player.global_position)
 			raycast.force_raycast_update()
 			if raycast.is_colliding() and raycast.get_collider() != player:
@@ -71,17 +78,19 @@ func _physics_process(delta: float) -> void:
 				# otherwise move to search
 				current_state=Racoon_State.Search
 		Racoon_State.Search:
-			search_timer.start(5) # timer incase search gets stuck
+			detection_light.light_color =Color(1,0.5,0,1)
+			search_timer.start(SEARCH_TIME) # timer incase search gets stuck
 			update_target_location(last_known_position)
 			if nav_agent.is_navigation_finished(): 
 				
 				if turn_timer.is_stopped():
 					print("Timer start") # look left and right for 1 second
-					turn_timer.start(1)
+					turn_timer.start(TURN_TIME)
 			
 			
 			
 		Racoon_State.Patrol:
+			detection_light.light_color =Color(0.95,0.95,0,1)
 			# iterates through patrol points and updates nav target accordingly
 			if patrol_points.size()>0:
 				
