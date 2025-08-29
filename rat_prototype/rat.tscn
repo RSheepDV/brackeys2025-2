@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bndtknr5bs2eq"]
 
-[ext_resource type="Script" uid="uid://bnbj0t8f5venj" path="res://rat_prototype/rigid_body_3d.gd" id="1_r7dv2"]
+[ext_resource type="Script" path="res://rat_prototype/rigid_body_3d.gd" id="1_r7dv2"]
 [ext_resource type="PackedScene" uid="uid://c6ghkkd6jt8a6" path="res://rat_prototype/Model/rat.blend" id="2_m435s"]
 [ext_resource type="Material" uid="uid://4821mqrrb41q" path="res://rat_prototype/Model/skin.tres" id="3_4ge2j"]
 [ext_resource type="Material" uid="uid://bhdpin5yf0sr4" path="res://rat_prototype/Model/pads.tres" id="4_j17i5"]
@@ -11,17 +11,30 @@ radius = 0.3
 [node name="rat" type="Node3D" groups=["rat"]]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["rat"]]
-transform = Transform3D(1, 0, 0, 0, 0.49177, 0.870725, 0, -0.870725, 0.49177, 0, 0.356446, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273687, 0)
 script = ExtResource("1_r7dv2")
+speed = 7.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" groups=["rat"]]
 shape = SubResource("SphereShape3D_m435s")
 
 [node name="model" parent="RigidBody3D" instance=ExtResource("2_m435s")]
-transform = Transform3D(0.6, 0, 0, 0, 0.332488, -0.499451, 0, 0.499451, 0.332488, 0, -0.0330908, -0.0585903)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Sphere_002" parent="RigidBody3D/model" index="1"]
 surface_material_override/0 = ExtResource("3_4ge2j")
 surface_material_override/1 = ExtResource("4_j17i5")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+remote_path = NodePath("../../Node3D")
+update_rotation = false
+update_scale = false
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273687, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.836056, 0.548643, 0, -0.548643, 0.836056, 0, 3.03504, 3.98518)
 
 [editable path="RigidBody3D/model"]

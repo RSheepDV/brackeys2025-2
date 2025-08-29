@@ -18,7 +18,7 @@ void vertex() {
 	
 	VERTEX /= scale;
 	
-	vec3 world_position = NODE_POSITION_WORLD;
+	vec3 world_position = NODE_POSITION_WORLD / scale;
 	float dist = length(VERTEX - world_position);
 	float falloff = dist < radius ? max(1.0 / (dropoff_sharpness * (dist - radius)) + 1.0, 0.0) : 0.0;
 	
@@ -40,6 +40,8 @@ void vertex() {
 	}
 	
 	VERTEX *= scale;
+	
+	//VERTEX.y += scale.y / 5.0;
 }
 
 uniform vec3 color : source_color;

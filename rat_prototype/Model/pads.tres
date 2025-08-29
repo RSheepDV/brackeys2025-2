@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhdpin5yf0sr4"]
 
-[ext_resource type="Shader" uid="uid://bmisjb8aqtcp0" path="res://rat_prototype/Model/squish_shader.gdshader" id="1_7lrrj"]
+[ext_resource type="Shader" path="res://rat_prototype/Model/squish_shader.gdshader" id="1_7lrrj"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_7lrrj")
-shader_parameter/squish_factor = 2.3
+shader_parameter/squish_amount = 5.0
 shader_parameter/flatten_floor = 0.0
 shader_parameter/dropoff_sharpness = 11.395
 shader_parameter/radius = 0.325

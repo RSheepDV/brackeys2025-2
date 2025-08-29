@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://geppkhisu3ms"]
 
-[ext_resource type="MeshLibrary" uid="uid://b13o8ic75rxom" path="res://LevelElements/meshlib.tres" id="1_50e5v"]
+[ext_resource type="MeshLibrary" uid="uid://dbk8lt2sorop2" path="res://LevelElements/meshlib.tres" id="1_50e5v"]
 [ext_resource type="PackedScene" uid="uid://bndtknr5bs2eq" path="res://rat_prototype/rat.tscn" id="2_2pv32"]
 [ext_resource type="PackedScene" uid="uid://b68h4s5mqb0b2" path="res://rat_prototype/biscuit.tscn" id="2_tc7hy"]
 
@@ -13,9 +13,6 @@ albedo_color = Color(0.244652, 0.165731, 0.0719673, 1)
 size = Vector3(20, 0.1, 20)
 
 [node name="Prototype1" type="Node3D"]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 7)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_50e5v")
