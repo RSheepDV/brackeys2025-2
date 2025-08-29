@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6ghkkd6jt8a6"
-path="res://.godot/imported/rat.blend-4715cfc3f3e6ca15be284e25424ebbb1.scn"
+uid="uid://ulvaid0im25a"
+path="res://.godot/imported/wall_corner.blend-16a978440f5bb15188935705e754026a.scn"
 
 [deps]
 
-source_file="res://rat_prototype/rat.blend"
-dest_files=["res://.godot/imported/rat.blend-4715cfc3f3e6ca15be284e25424ebbb1.scn"]
+source_file="res://LevelElements/Wall/wall_corner.blend"
+dest_files=["res://.godot/imported/wall_corner.blend-16a978440f5bb15188935705e754026a.scn"]
 
 [params]
 
@@ -32,7 +32,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Side": {
+"use_external/enabled": true,
+"use_external/path": "uid://bb5kvlgwkxcja"
+},
+"Top": {
+"use_external/enabled": true,
+"use_external/path": "uid://d1cncjm4xpna8"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

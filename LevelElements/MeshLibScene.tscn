@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrs5hgn84slk"]
+
+[ext_resource type="PackedScene" uid="uid://457stbc5bm1a" path="res://LevelElements/Wall/wall.blend" id="1_13pne"]
+[ext_resource type="PackedScene" uid="uid://ulvaid0im25a" path="res://LevelElements/Wall/wall_corner.blend" id="2_src25"]
+
+[node name="MeshLibScene" type="Node3D"]
+
+[node name="wall" parent="." instance=ExtResource("1_13pne")]
+
+[node name="wall_corner" parent="." instance=ExtResource("2_src25")]

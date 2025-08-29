@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://mbdg7c4170r8"]
+[gd_scene load_steps=4 format=3 uid="uid://mbdg7c4170r8"]
 
 [ext_resource type="PackedScene" uid="uid://bndtknr5bs2eq" path="res://rat_prototype/rat.tscn" id="1_1gkym"]
 [ext_resource type="PackedScene" uid="uid://b68h4s5mqb0b2" path="res://rat_prototype/biscuit.tscn" id="2_38eex"]
-[ext_resource type="Script" uid="uid://degfohbu728fx" path="res://rat_prototype/biscuit.gd" id="3_y0c41"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_38eex"]
 
 [node name="RatTest" type="Node3D"]
 
-[node name="rat_root" parent="." groups=["rat"] instance=ExtResource("1_1gkym")]
+[node name="rat_root" parent="." instance=ExtResource("1_1gkym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967716, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -16,12 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22735, 2.06237)
 
 [node name="biscuit" parent="." instance=ExtResource("2_38eex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477869, 1.14886)
-script = ExtResource("3_y0c41")
 
 [node name="floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 shape = SubResource("WorldBoundaryShape3D_38eex")
 debug_color = Color(5.77569e-07, 0.585057, 0.778809, 0.42)
-
-[connection signal="body_entered" from="biscuit" to="biscuit" method="_on_body_entered"]

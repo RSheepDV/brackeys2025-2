@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bb5kvlgwkxcja"]
+
+[ext_resource type="Texture2D" uid="uid://bs2k0jr14tapm" path="res://LevelElements/Wall/textures/wall.png" id="1_f5775"]
+[ext_resource type="Texture2D" uid="uid://daix1fmkygjy8" path="res://LevelElements/Wall/textures/wall_normal.png" id="2_kjkm3"]
+
+[resource]
+albedo_texture = ExtResource("1_f5775")
+metallic = 1.0
+normal_enabled = true
+normal_scale = 0.3
+normal_texture = ExtResource("2_kjkm3")
