@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy74y4i5ijcp8"]
+
+[ext_resource type="Script" uid="uid://dwkhrsuftkbff" path="res://LevelElements/DepositArea/depositArea.gd" id="1_p5wq5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hf2jq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ff8jw"]
+transparency = 1
+albedo_color = Color(0, 0.648062, 0.162079, 0.368627)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6pmv"]
+
+[node name="DepositArea" type="Area3D"]
+script = ExtResource("1_p5wq5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hf2jq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ff8jw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t6pmv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		raycast.target_position = to_local(player.global_position)
 		raycast.force_raycast_update()
 		if raycast.is_colliding() and raycast.get_collider() != player:
-			print("collided")
+			#print("collided")
 			in_view=false
 		else:
 			current_state=Racoon_State.Chase
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			raycast.target_position = to_local(player.global_position)
 			raycast.force_raycast_update()
 			if raycast.is_colliding() and raycast.get_collider() != player:
-				print("collided")
+				#print("collided")
 				in_view=false
 			else:
 				last_known_position=player.global_position
@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 			if nav_agent.is_navigation_finished(): 
 				
 				if turn_timer.is_stopped():
-					print("Timer start") # look left and right for 1 second
+					#print("Timer start") # look left and right for 1 second
 					turn_timer.start(TURN_TIME)
 			
 			
@@ -154,16 +154,16 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		
 	
 func _on_turn_timer_timeout() -> void:
-	print("end of timer")
+	#print("end of timer")
 	match current_dir:
 		SearchDirection.NA:
 			rotation.y += deg_to_rad(90)
-			print("Left")
+			#print("Left")
 			current_dir=SearchDirection.Left
 			
 		SearchDirection.Left:
 			rotation.y += deg_to_rad(-180)
-			print("Right")
+			#print("Right")
 			current_dir=SearchDirection.Right
 		SearchDirection.Right:
 			
